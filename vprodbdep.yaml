@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: vprodb
-          image: abubakr07/vprofiledb:V1
+          image: abubakr07/vprofiledb:latest
           #          args:
           #            - "--ignore-db-dir=lost+found"
           volumeMounts:
@@ -41,7 +41,7 @@ spec:
       initContainers:
         - name: busybox
           image: busybox:latest
-          args: ["rm","rf", "/var/lib/mysql/lost+found"]
+          args: ["rm","-rf", "/var/lib/mysql/lost+found"]
           volumeMounts:
             - mountPath: /var/lib/mysql
               name: vpro-db-data
